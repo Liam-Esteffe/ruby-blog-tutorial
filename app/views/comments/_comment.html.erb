@@ -1,0 +1,18 @@
+<% unless comment.archived? %>
+  <p>
+    <strong>Auteur:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Commentaire:</strong>
+    <%= comment.body %>
+  </p>
+
+  <p>
+    <%= link_to "Supprimer le commentaire", [comment.article, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Etes vous sur de supprimer le commentaire ?"
+                } %>
+  </p>
+<% end %>

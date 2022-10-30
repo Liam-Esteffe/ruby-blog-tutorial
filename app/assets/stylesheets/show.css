@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+* {
+    font-family: 'Silkscreen', monospace;
+}
+
+.header {
+    background-color: rgb(165, 22, 22);
+    color: white
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 5px;
+}
+
+li {
+    padding: 10px;
+}
+
+.divider {
+    border: 6px dashed rgb(169, 169, 169);
+    margin: 10px;
+}
+
+.button {
+    margin-top: 20px;
+    font-weight: 600;
+    padding: 5px;
+    font-size: 20px;
+    outline: none;
+    color: white;
+    border: 3px dotted white;
+    background-color: rgb(165, 22, 22);
+    border-radius: 5px;
+}
+
+.button:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 7px;
+    left: 7px;
+    height: 100%;
+    z-index: -1;
+    transition: all 0.35s;
+    border-radius: inherit;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(165, 22, 22);
+    color: white;
+    text-align: center;
+}

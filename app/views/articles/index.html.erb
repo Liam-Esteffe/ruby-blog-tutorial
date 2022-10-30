@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "index.css" %>
+<div style="float: right">
+<div style="display: flex; flex-direction: row;">
+    <p style="padding-right: 15px;">Me connecter</p>
+    <p>M'inscrire</p>
+    </div>
+</div>
+<h1 class="title">Bienvenu sur mon blog pour apprendre ROR</h1>
+<p class="description">Voici une liste de mes derniers articles</p>
+<div style="display: flex; justify-content: center">
+    <img style="height: 70px;" src="https://cdn.iconscout.com/icon/free/png-256/ruby-2752084-2284901.png">
+</div>
+<h1 style="padding-top: 100px">Mes derniers articles (total : <%= Article.public_count%>)</h1>
+
+
+<ul>
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <li>
+      <div class="carder">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+        <p class="name"><%= link_to article.title, article, class: "link-primary" %></p>
+        <p class="description"><%= article.body %></p>
+        
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+
+<div style="text-align: center">
+
+<button><%= link_to "Ajouter un article", new_article_path, class: "link-color" %></button>
+</div>
+<br/>
+<br/>
+
+<div class="footer">
+  <p>Made By Liam Esteffe</p>
+</div>

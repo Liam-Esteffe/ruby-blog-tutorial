@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "show.css" %>
+
+<div class="header">
+    <h1><%= @article.title %></h1>
+</div>
+<p style="max-width: 700px;"><%= @article.body %></p>
+
+<ul>
+  <li><%= link_to "Editer", edit_article_path(@article) %></li>
+  <li><%= link_to "Retournez en arrière", articles_path %></li>
+  <li><%= link_to "Supprimer", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Etes vous sur de supprimer l'article ?"
+                  } %></li>
+</ul>
+
+<div class="divider"></div>
+
+<div class="header">
+<h2 >Section Commentaires : </h2>
+</div>
+<h2>Les derniers commentaires :</h2>
+<% unless @article.comments.length > 0 %>
+<%= 'Aucun Commentaire, Ajouter en un ! ' %>
+<% else %>
+    <%= render @article.comments %>
+<% end %>
+
+<h2>Ajouter un commentaire :</h2>
+<%= render 'comments/form' %>
